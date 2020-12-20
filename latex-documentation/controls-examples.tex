@@ -9,8 +9,6 @@
 \addbibresource{controls-examples.bib}
 
 
-
-
 \begin{document}
 \maketitle
 
@@ -20,10 +18,23 @@
 
 \section{Dynamics Models}
 \subsection{Hill-Clohessy-Wiltshire Equations}
+The linearized discrete-time Hill-Clohessy-Wiltshire dynamic equations are used as described in \cite{2017_Jewison} and reprinted below:
 
+\section{Controllers}
+\subsection{Linear Quadratic Regulator}
+The cost function is 
+$$V(x(0), u) = \sum\limits_{k=0}^{N-1}[l(x(k), u(k))] + l_N(x(N))$$
+Where $l$ is the stage cost $l(x,u) = \frac{1}{2}(x^TQx + u^TRu)$ for $k=0,1,...N-1$.
+There is no action we can take at the final stage, so the terminal stage cost is $l_N(x(N)) = \frac{1}{2}x^TP_fx$. 
+However, there is an action we can take at the penultimate state, or with horizon $N-1$. 
+The problem to be solved at the penultimate stage is 
+$$\min\limits_{u(N-1), x(N)} l(x(N-1), u(N-1)) l_N(x(N))$$
+subject to the system dynamics 
+$$x(N) = Ax(N-1) + Bu(N-1)$$
 
+\subsection{Model Predictive Control with Constraints Tightening}
+Iskender \cite{2018_Iskender} provides the original source for this controller.
 
-Iskender \cite{2018_Iskender}
-
+\printbibliography
 
 \end{document}

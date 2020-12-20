@@ -1,4 +1,4 @@
-# Setup
+# Controls Examples
 This repo contains a variety of example controller implementations.
 
 ## Virtual Environment Setup
@@ -45,7 +45,3 @@ Then launch the jupyter server with
 ```bash
 jupyter notebook
 ```
-
-# Controllers
-## Linear Quadratic Regulator
-This controller drives the satellite to zero (i.e. crashes into the client). 

@@ -19,6 +19,33 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{2017_Jewison}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=541d7f42257387ca0dd676e0c3fe5cc6}{%
+           family={Jewison},
+           familyi={J\bibinitperiod},
+           given={Christopher\bibnamedelima Michael},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Massachusetts}%
+      }
+      \list{publisher}{1}{%
+        {Massachusetts Institute of Technology}%
+      }
+      \strng{namehash}{541d7f42257387ca0dd676e0c3fe5cc6}
+      \strng{fullhash}{541d7f42257387ca0dd676e0c3fe5cc6}
+      \strng{bibnamehash}{541d7f42257387ca0dd676e0c3fe5cc6}
+      \strng{authorbibnamehash}{541d7f42257387ca0dd676e0c3fe5cc6}
+      \strng{authornamehash}{541d7f42257387ca0dd676e0c3fe5cc6}
+      \strng{authorfullhash}{541d7f42257387ca0dd676e0c3fe5cc6}
+      \field{sortinit}{J}
+      \field{sortinithash}{c45040a764d616897e7f5b30174d7b92}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Guidance and Control for Multi-stage Rendezvous and Docking Operations in the Presence of Uncertainty}
+      \field{year}{2017}
+    \endentry
     \entry{2018_Iskender}{inproceedings}{}
       \name{author}{3}{}{%
         {{hash=b008a8c8759889ef7111bae47f9658b8}{%
