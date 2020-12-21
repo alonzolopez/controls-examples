@@ -16,22 +16,83 @@
     This paper documents the formulation of the example controllers.
 \end{abstract}
 
+\section{Goals}
+
+Compare the performance of different controllers
+\begin{itemize}
+    \item LQR
+    \item LQT
+    \item MPC
+\end{itemize}
+in different dynamic environments
+\begin{itemize}
+    \item Linear HCW
+    \item Nonlinear HCW
+\end{itemize}
+And in different situations
+\begin{itemize}
+    \item Full state knowledge
+    \item Noisy relative sensor estimate, but orbit radius of the client known
+    \item Noisy relative sensor estimate and noisy estimate of orbit radius of the client (meaning the A and B matrices are time-varying)
+\end{itemize}
+Record metrics for each controller
+\begin{itemize}
+    \item Computational cost (this needs a metric)
+    \item Fuel consumption
+    \item Stability
+    \item Time to rendezvous
+    \item Success of rendezvous in the presence of noisy sensor measurments
+\end{itemize}
+
 \section{Dynamics Models}
 \subsection{Hill-Clohessy-Wiltshire Equations}
 The linearized discrete-time Hill-Clohessy-Wiltshire dynamic equations are used as described in \cite{2017_Jewison} and reprinted below:
+What are the orientation dynamics in space?
 
+What other dynamics models are out there that handle J2 perturbations and longer time stretches? LTI HCW is not valid for long time stretches.
 \section{Controllers}
 \subsection{Linear Quadratic Regulator}
 The cost function is 
-$$V(x(0), u) = \sum\limits_{k=0}^{N-1}[l(x(k), u(k))] + l_N(x(N))$$
-Where $l$ is the stage cost $l(x,u) = \frac{1}{2}(x^TQx + u^TRu)$ for $k=0,1,...N-1$.
-There is no action we can take at the final stage, so the terminal stage cost is $l_N(x(N)) = \frac{1}{2}x^TP_fx$. 
+$$V(x(0), u) = \sum\limits_{k=0}^{N-1}\frac{1}{2}[x_{k}^TQx_{k} + u_{k}^TRu_{k}] + \frac{1}{2}x_N^TQ_fx_N$$
+Where $l$ is the stage cost $l(k) = \frac{1}{2}(x_k^TQx_k + u_k^TRu_k)$ for $k=0,1,...N-1$.
+There is no action we can take at the final stage, so the terminal stage cost is $l(N) = \frac{1}{2}x_N^TQ_fx_N$. 
 However, there is an action we can take at the penultimate state, or with horizon $N-1$. 
-The problem to be solved at the penultimate stage is 
-$$\min\limits_{u(N-1), x(N)} l(x(N-1), u(N-1)) l_N(x(N))$$
+The problem to be solved at the penultimate stage is
+$$V^0_{N-1}(x_{N-1}, u_{N-1}) = \min\limits_{u_{N-1}, x_N} \frac{1}{2}(x_{N-1}^TQx_{N-1} + u_{N-1}^TRu_{N-1} + x_N^TQ_fx_N)$$
 subject to the system dynamics 
-$$x(N) = Ax(N-1) + Bu(N-1)$$
+$$x_N = Ax_{N-1} + Bu_{N-1}$$
+Where the optimal cost at the penultimate stage is $V^0_{N-1}$ and the optimal input is $u^0_{N-1}$. 
+For the sake of compacting the notation, we re-write $V_{N-1}^0$ as
+$$V^0_{N-1}=\min\limits_{u_{N-1}, x_N} \frac{1}{2}(\|x_{N-1}\|_Q^2 + \|u_{N-1}\|_R^2 + \|x_{N}\|^2_{Q_f})$$
+And replace $x_N$ with the model
+$$V^0_{N-1}= \min\limits_{u_{N-1}, x_N}\frac{1}{2}(\|x_{N-1}\|_Q^2 + \|u_{N-1}\|_R^2 + \|Ax_{N-1} + Bu_{N-1}\|^2_{Q_f})$$
+After some manipulation, we can re-write this as
+$$V^0_{N-1}= \min\limits_{u_{N-1}, x_N}\frac{1}{2}(\|x_{N-1}\|_Q^2 + \|u_{N-1} - v\|_H^2 + d)$$
+Where
+$$H = R + B^T Q_f V$$
+$$v = - (B^T Q_f B + R)^{-1} B^T Q_f A x_{N-1}$$
+$$d = x^T_{N-1}[A^T Q_f A - A^T Q_f^T B(B^T Q_f B + R)^{-1} B^T Q_f A]x_{N-1}$$
 
+The optimal $u^0_{N-1}$ is then 
+$$u^0_{N-1} = v = - (B^T Q_f B + R)^{-1} B^T Q_f A x_{N-1}$$
+$$u^0_{N-1} = K_{N-1} x_{N-1}$$
+$$K_{N-1} = - (B^T Q_f B + R)^{-1} B^T Q_f A $$
+$$x_N^0 = (A + BK_{N-1})x_{N-1}$$
+And 
+$$V^0_{N-1}=\min\limits_{u_{N-1}, x_N} \frac{1}{2}(\|x_{N-1}\|_Q^2  + d)$$
+$$V_{N-1}^0 = \frac{1}{2}x^T_{N-1}P_{N-1} x_{N-1}$$
+And 
+$$P_{N-1} = Q + A^T Q_f A - A^T Q_f^T B(B^T Q_f B + R)^{-1} B^T Q_f A$$
+Starting from 
+$$P_N = Q_f$$
+At the next stage we solve the optimization
+$$\min\limits_{u_{N-1}, x_{N-1}} \frac{1}{2}(x_{N-2}^TQx_{N-2} + u_{N-2}^TRu_{N-2} + V_{N-1}^0)$$
+This problem is identical in structure so the solution is too
+$$u^0_{N-2} = K_{N-2} x_{N-2}$$
+$$x_{N-1}^0 = (A + BK_{N-2})x_{N-2}$$
+$$V_{N-2}^0 = \frac{1}{2}x^T_{N-2}P_{N-2} x_{N-2}$$
+$$K_{N-2} = - (B^T P_{N-1} B + R)^{-1} B^T P_{N-1} A $$
+$$P_{N-2} = Q + A^T P_{N-1} A - A^T P_{N-1}^T B(B^T P_{N-1} B + R)^{-1} B^T P_{N-1} A$$
 \subsection{Model Predictive Control with Constraints Tightening}
 Iskender \cite{2018_Iskender} provides the original source for this controller.
 

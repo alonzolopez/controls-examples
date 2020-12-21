@@ -1,6 +1,6 @@
 import numpy as np
 
-class HCWSim():
+class HCWLTIDynamics(object):
     def __init__(self, r0 = 6793137, fthr = 2, m = 4, dt = 0.01):
         # r0 := orbit radius; initial value for r0 is for a satellite in LEO
         # m:= mass in kg
@@ -27,14 +27,40 @@ class HCWSim():
         ])
         self.C = np.eye(3)
         self.D = np.zeros((3,3))
-        
-        # print(self.A)
-        print("HCW Sim initialized")
-    def getA(self):
-        return self.A
+        # print("HCW Dynamics initialized")
 
+    def step(self, x, u):
+        # Input:
+        # state x, a (6,) numpy array
+        # control input u, a (3,) numpy array
+        # Output:
+        # xnext, the next state at t + dt, a (6,) numpy array
+        return self.A.dot(x) + self.B.dot(u)
+# class Sim(object):
+#     """docstring for Sim"""
+#     def __init__(self, x0):
+#         super(Sim, self).__init__()
+#         # hold the history of true state variables 
+#         self.xtrue = x0
+#         self.xtrues = []
+        
+#         # hold the history of actuator commands and K matrices
+#         self.us = []
+#         self.Ks = []
+
+#         # hold the history of state estimates and covariance
+#         self.xhat = None # xtrue plus sensor noise v
+#         self.Xhats = []
+#         self.Ps = []
+
+
+#     def stepsim(self):
+#         pass
+
+#     def 
+        
 if __name__=="__main__":
     print("Main")
-    sim = HCWSim()
+    sim = Sim()
     print(sim.A)
     
