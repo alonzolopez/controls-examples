@@ -93,6 +93,11 @@ $$x_{N-1}^0 = (A + BK_{N-2})x_{N-2}$$
 $$V_{N-2}^0 = \frac{1}{2}x^T_{N-2}P_{N-2} x_{N-2}$$
 $$K_{N-2} = - (B^T P_{N-1} B + R)^{-1} B^T P_{N-1} A $$
 $$P_{N-2} = Q + A^T P_{N-1} A - A^T P_{N-1}^T B(B^T P_{N-1} B + R)^{-1} B^T P_{N-1} A$$
+
+To obtain the infinite horizon LQR, we iterate on $K$ and $P$ until convergence using the following
+$$K_{N-1} = - (B^T P_{N} B + R)^{-1} B^T P_{N} A $$
+$$P_{N-1} = Q + A^T P_{N} A - A^T P_{N}^T B(B^T P_{N} B + R)^{-1} B^T P_{N} A$$
+
 \subsection{Model Predictive Control with Constraints Tightening}
 Iskender \cite{2018_Iskender} provides the original source for this controller.
 
