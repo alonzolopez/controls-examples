@@ -101,6 +101,11 @@ $$P_{N-1} = Q + A^T P_{N} A - A^T P_{N}^T B(B^T P_{N} B + R)^{-1} B^T P_{N} A$$
 \subsection{Model Predictive Control with Constraints Tightening}
 Iskender \cite{2018_Iskender} provides the original source for this controller.
 
+\section{State Estimation}
+\subsection{Literature Review}
+\cite{2017_Tordal} uses an Extended Quaternion Kalman Filter for aruco markers with process noise covariance 
+$Q_k = \sigma_q ^ 2 I$ with $\sigma_q = 0.05$ and sensor noise covariance $R_k = \sigma_r^2 I$ $\sigma_r = 0.05$.
+The noise covariance values are tuned to satisfaction for the desired performance.
 \printbibliography
 
 \end{document}

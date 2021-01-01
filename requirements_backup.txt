@@ -1,0 +1,8 @@
+jupyterlab==2.1.2
+Pillow==7.1.2
+pylint==2.5.2
+numpy==1.18.4
+sympy==1.5.1
+matplotlib==3.3.0
+ipympl==0.5.7
+plotly==4.9.0

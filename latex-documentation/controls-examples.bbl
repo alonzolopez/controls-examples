@@ -83,6 +83,44 @@
       \field{title}{Constraints Tightening Approach Towards Model Predictive Control Based Rendezvous and Docking with Uncooperative Targets}
       \field{year}{2018}
     \endentry
+    \entry{2017_Tordal}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=69f8a3745ac169c8310023cb16530d78}{%
+           family={Tordal},
+           familyi={T\bibinitperiod},
+           given={Sondre\bibnamedelima Sanden},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=84ec48e30ec8b25dec5a9c344a86a90f}{%
+           family={Hovland},
+           familyi={H\bibinitperiod},
+           given={Geir},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Grimstad, Norway}%
+      }
+      \list{publisher}{1}{%
+        {Norwegian Society of Automatic Control}%
+      }
+      \strng{namehash}{17662f097f082f18c74d9d01ab5b32e6}
+      \strng{fullhash}{17662f097f082f18c74d9d01ab5b32e6}
+      \strng{bibnamehash}{17662f097f082f18c74d9d01ab5b32e6}
+      \strng{authorbibnamehash}{17662f097f082f18c74d9d01ab5b32e6}
+      \strng{authornamehash}{17662f097f082f18c74d9d01ab5b32e6}
+      \strng{authorfullhash}{17662f097f082f18c74d9d01ab5b32e6}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Relative Vessel Motion Tracking Using Sensor Fusion, Aruco Markers, and MRU Sensors}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.researchgate.net/profile/Sondre_Tordal/publication/316592734_Relative_Vessel_Motion_Tracking_using_Sensor_Fusion_Aruco_Markers_and_MRU_Sensors/links/590709a54585152d2e968714/Relative-Vessel-Motion-Tracking-using-Sensor-Fusion-Aruco-Markers-and-MRU-Sensors.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/profile/Sondre_Tordal/publication/316592734_Relative_Vessel_Motion_Tracking_using_Sensor_Fusion_Aruco_Markers_and_MRU_Sensors/links/590709a54585152d2e968714/Relative-Vessel-Motion-Tracking-using-Sensor-Fusion-Aruco-Markers-and-MRU-Sensors.pdf
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

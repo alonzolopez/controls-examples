@@ -1,17 +1,17 @@
 [0] Config.pm:304> INFO - This is Biber 2.14 (beta)
 [0] Config.pm:307> INFO - Logfile is 'controls-examples.blg'
-[46] biber:322> INFO - === Sun Dec 20, 2020, 22:34:41
-[55] Biber.pm:415> INFO - Reading 'controls-examples.bcf'
-[98] Biber.pm:943> INFO - Found 2 citekeys in bib section 0
-[107] Biber.pm:4256> INFO - Processing section 0
-[108] Utils.pm:75> INFO - Globbing data source 'controls-examples.bib'
-[108] Utils.pm:91> INFO - Globbed data source 'controls-examples.bib' to controls-examples.bib
-[114] Biber.pm:4455> INFO - Looking for bibtex format file 'controls-examples.bib' for section 0
-[115] bibtex.pm:1653> INFO - LaTeX decoding ...
-[133] bibtex.pm:1471> INFO - Found BibTeX data source 'controls-examples.bib'
-[148] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[148] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[148] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[148] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[150] bbl.pm:652> INFO - Writing 'controls-examples.bbl' with encoding 'UTF-8'
-[151] bbl.pm:755> INFO - Output to controls-examples.bbl
+[58] biber:322> INFO - === Sun Dec 27, 2020, 10:40:27
+[67] Biber.pm:415> INFO - Reading 'controls-examples.bcf'
+[108] Biber.pm:943> INFO - Found 3 citekeys in bib section 0
+[117] Biber.pm:4256> INFO - Processing section 0
+[118] Utils.pm:75> INFO - Globbing data source 'controls-examples.bib'
+[118] Utils.pm:91> INFO - Globbed data source 'controls-examples.bib' to controls-examples.bib
+[123] Biber.pm:4455> INFO - Looking for bibtex format file 'controls-examples.bib' for section 0
+[124] bibtex.pm:1653> INFO - LaTeX decoding ...
+[143] bibtex.pm:1471> INFO - Found BibTeX data source 'controls-examples.bib'
+[162] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[162] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[162] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[162] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[167] bbl.pm:652> INFO - Writing 'controls-examples.bbl' with encoding 'UTF-8'
+[168] bbl.pm:755> INFO - Output to controls-examples.bbl

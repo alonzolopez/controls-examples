@@ -23,6 +23,10 @@ On Windows:
 pip install -r .\requirements.txt
 ```
 
+You may need to install the following in order to run the plotly plots:
+1. Install Node.js and npm following these [instructions](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/)
+2. Install everything [here](https://github.com/plotly/plotly.py#jupyterlab-support-python-35) under JupyterLab Support
+3. (May not need this step) Install all extensions [here](https://github.com/jupyterlab/jupyter-renderers)
 
 
 ## Running
